@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="温泽煊 - 四川大学电子信息工程本科生，研究多模态生成、视频扩散模型、数字人与三维几何。"
+    />
+    <meta name="theme-color" content="#0d2c3d" />
+    <title>温泽煊 | 简历</title>
+    <style>
+      :root {
+        --ink: #123044;
+        --muted: #5c6b73;
+        --paper: #fbfaf6;
+        --canvas: #e9eee9;
+        --line: #cbd7d1;
+        --accent: #cc6b3d;
+        --accent-soft: #fff0e8;
+        --teal: #277c79;
+        --serif: "Iowan Old Style", "Songti SC", "STSong", "SimSun", serif;
+        --sans: Inter, "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: var(--canvas);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.72;
+      }
+      a { color: inherit; }
+      .shell { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+      .topbar {
+        position: sticky; top: 0; z-index: 10;
+        border-bottom: 1px solid rgba(203, 215, 209, .8);
+        background: rgba(251, 250, 246, .94);
+        backdrop-filter: blur(12px);
+      }
+      .nav { display: flex; justify-content: space-between; align-items: center; min-height: 62px; gap: 20px; }
+      .brand { text-decoration: none; font-family: var(--serif); font-size: 20px; letter-spacing: .08em; font-weight: 700; }
+      .nav-links { display: flex; gap: 18px; flex-wrap: wrap; justify-content: flex-end; }
+      .nav-links a { color: var(--muted); font-size: 14px; text-decoration: none; }
+      .nav-links a:hover { color: var(--accent); }
+
+      .hero {
+        overflow: hidden;
+        color: white;
+        background: var(--ink);
+        position: relative;
+      }
+      .hero::after {
+        content: ""; position: absolute; width: 460px; height: 460px; border: 1px solid rgba(255,255,255,.18); border-radius: 50%;
+        right: -170px; top: -250px; box-shadow: 0 0 0 48px rgba(255,255,255,.025), 0 0 0 96px rgba(255,255,255,.025);
+      }
+      .hero-inner { position: relative; z-index: 1; padding: 84px 28px 78px; max-width: 1160px; margin: 0 auto; }
+      .eyebrow { margin: 0 0 14px; color: #98d1c8; text-transform: uppercase; letter-spacing: .16em; font-size: 12px; font-weight: 700; }
+      h1 { margin: 0; font-family: var(--serif); font-size: clamp(46px, 8vw, 86px); line-height: 1.04; letter-spacing: .05em; }
+      .role { margin: 18px 0 0; color: #dce8e2; font-size: clamp(18px, 2.5vw, 24px); }
+      .intro { max-width: 670px; margin: 28px 0 0; color: #e2ebe7; font-size: 17px; }
+      .quick-links { display: flex; flex-wrap: wrap; gap: 11px; margin-top: 34px; }
+      .pill { display: inline-flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.42); border-radius: 999px; padding: 9px 14px; color: white; text-decoration: none; font-size: 14px; transition: .2s ease; }
+      .pill:hover { border-color: #fff; background: rgba(255,255,255,.12); transform: translateY(-1px); }
+
+      main { background: var(--paper); }
+      .main-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 72px; padding-top: 68px; padding-bottom: 80px; }
+      .content { min-width: 0; }
+      section { scroll-margin-top: 82px; }
+      .section + .section { margin-top: 67px; }
+      .section-kicker { color: var(--accent); letter-spacing: .13em; font-size: 12px; font-weight: 800; text-transform: uppercase; }
+      h2 { margin: 6px 0 24px; font-family: var(--serif); font-size: 32px; line-height: 1.2; }
+      h3 { margin: 0; font-size: 18px; line-height: 1.45; }
+      .summary { margin: 0; max-width: 720px; font-size: 18px; color: #3e5058; }
+
+      .timeline { position: relative; border-left: 1px solid var(--line); margin-left: 7px; padding-left: 30px; }
+      .entry { position: relative; padding-bottom: 36px; }
+      .entry:last-child { padding-bottom: 0; }
+      .entry::before { content: ""; position: absolute; width: 11px; height: 11px; left: -36px; top: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 5px var(--paper); }
+      .entry-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 3px; }
+      .date { flex: 0 0 auto; color: var(--teal); font-size: 14px; font-weight: 800; white-space: nowrap; }
+      .subline { margin: 3px 0 14px; color: var(--muted); font-size: 15px; }
+      ul { margin: 0; padding-left: 19px; }
+      li + li { margin-top: 8px; }
+      li::marker { color: var(--accent); }
+
+      .project-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+      .project { border: 1px solid var(--line); border-radius: 8px; padding: 22px; background: #fff; }
+      .project h3 { margin-bottom: 10px; }
+      .project p { margin: 0; color: var(--muted); font-size: 15px; }
+
+      .sidebar { padding-top: 8px; }
+      .side-card { border-top: 3px solid var(--accent); padding: 23px 22px; background: #f0f4ef; }
+      .side-card + .side-card { margin-top: 22px; }
+      .side-card h3 { margin-bottom: 14px; font-family: var(--serif); font-size: 21px; }
+      .side-card p { margin: 0; color: var(--muted); font-size: 14px; }
+      .contact-list { display: grid; gap: 11px; }
+      .contact-item { display: block; color: var(--ink); font-size: 14px; overflow-wrap: anywhere; }
+      .contact-label { display: block; margin-bottom: 2px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+      .tag { border: 1px solid #b6ccc4; border-radius: 999px; padding: 4px 9px; color: #27625e; background: #f9fcf8; font-size: 12px; font-weight: 700; }
+      .education-stat { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--line); font-size: 14px; }
+      .education-stat strong { display: block; color: var(--teal); font-size: 23px; line-height: 1.2; }
+      .copy-button { width: 100%; margin-top: 15px; border: 1px solid var(--ink); border-radius: 4px; padding: 9px 12px; color: var(--ink); background: transparent; font: inherit; font-size: 14px; cursor: pointer; }
+      .copy-button:hover { color: white; background: var(--ink); }
+
+      footer { border-top: 1px solid var(--line); background: var(--paper); }
+      .footer-inner { display: flex; justify-content: space-between; gap: 20px; padding-top: 23px; padding-bottom: 27px; color: var(--muted); font-size: 13px; }
+
+      @media (max-width: 840px) {
+        .main-grid { grid-template-columns: 1fr; gap: 42px; padding-top: 48px; }
+        .sidebar { order: -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; padding-top: 0; }
+        .side-card + .side-card { margin-top: 0; }
+      }
+      @media (max-width: 580px) {
+        .shell { padding-left: 20px; padding-right: 20px; }
+        .hero-inner { padding: 62px 20px 58px; }
+        .nav { min-height: 56px; }
+        .nav-links { display: none; }
+        .project-grid, .sidebar { grid-template-columns: 1fr; }
+        .entry-top, .footer-inner { display: block; }
+        .date { display: block; margin-top: 5px; }
+        .main-grid { padding-bottom: 54px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="nav shell" aria-label="页面导航">
+        <a class="brand" href="#top">WEN ZEXUAN</a>
+        <div class="nav-links">
+          <a href="#about">概览</a>
+          <a href="#experience">科研经历</a>
+          <a href="#projects">项目与论文</a>
+          <a href="#skills">技能</a>
+        </div>
+      </nav>
+    </header>
+
+    <div id="top" class="hero">
+      <div class="hero-inner">
+        <p class="eyebrow">Curriculum Vitae / Research Profile</p>
+        <h1>温泽煊</h1>
+        <p class="role">本科生 RA · 四川大学 · 成都</p>
+        <p class="intro">关注多模态生成、视频扩散模型、身份保持数字人、三维几何与 CAD，以及空间智能。</p>
+        <div class="quick-links">
+          <a class="pill" href="mailto:wenzexuan@stu.scu.edu.cn">✉ 联系邮箱</a>
+          <a class="pill" href="tel:+8616663758978">⌕ 联系电话</a>
+          <a class="pill" href="#experience">查看研究经历 ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <div class="shell main-grid">
+        <div class="content">
+          <section id="about" class="section">
+            <div class="section-kicker">Profile</div>
+            <h2>研究概览</h2>
+            <p class="summary">电子信息工程本科生，具备多模态生成与三维几何方向的研究及工程经验。熟悉视频扩散框架的部署、改造和实验评测，也持续探索从文本、图像、点云到参数化 CAD 程序的统一生成。</p>
+          </section>
+
+          <section id="experience" class="section">
+            <div class="section-kicker">Research &amp; Internship</div>
+            <h2>科研与实习经历</h2>
+            <div class="timeline">
+              <article class="entry">
+                <div class="entry-top"><h3>多模态 CAD 生成与三维几何重建</h3><span class="date">2026</span></div>
+                <p class="subline">访问科研实习生 · 香港大学</p>
+                <ul>
+                  <li>面向文本、渲染图像与点云到参数化 CAD 程序的统一生成开展研究，关注多模态几何对齐、拓扑/建模序列表达，以及生成结果的可编辑性与可执行性。</li>
+                  <li>搭建 STEP 到多模态训练样本的自动化数据管线，完成模型读取、网格转换、尺度归一化、点云采样和多视角渲染，并维护样本清单与数据对应关系。</li>
+                  <li>使用 Blender、FreeCAD、CadQuery、Trimesh 生成 RGB、深度、法线、掩码、相机位姿及遮挡资产，处理 STEP 加载失败、插件依赖和批量遍历等工程问题。</li>
+                  <li>调研并复现多模态 CAD 生成方法，探索以 JSON/command sequence 为中间表示的建模方案；搭建 STEP 预测评测流程，从文件有效性、几何误差与结构一致性等维度分析结果。</li>
+                </ul>
+              </article>
+              <article class="entry">
+                <div class="entry-top"><h3>身份保持的多模态数字人视频生成</h3><span class="date">2026</span></div>
+                <p class="subline">访问学生 · 北京大学</p>
+                <ul>
+                  <li>围绕参考图像、音频、文本与动作信号联合驱动的数字人视频生成开展研究，聚焦面部/身体身份一致性、时序稳定性、动作可控性与视觉质量。</li>
+                  <li>基于 Wan、InterActHuman 等视频扩散框架完成环境部署、代码改造与对比实验，探索参考特征注入、首尾帧约束、关键帧邻域控制和潜空间引导。</li>
+                  <li>针对长序列生成中的 VAE 解码发灰/模糊、分块边界、颜色漂移、尾帧跳变及局部帧污染设计消融实验，并以尾帧误差、色差、闪烁和平滑度进行评测。</li>
+                  <li>完成两项 training-free 方案验证：以尾窗与潜空间引导增强生成视频和输入首尾帧的一致性；构建 IC-Light、前景掩码与时序融合结合的数字人视频重光照流程。</li>
+                </ul>
+              </article>
+              <article class="entry">
+                <div class="entry-top"><h3>语义通信中语义提取计算开销的量化与分析</h3><span class="date">投稿中</span></div>
+                <p class="subline">四川大学校级创新创业项目 · 第一作者</p>
+                <ul>
+                  <li>从参数量、FLOPs、能耗与时延等维度量化 CNN、Transformer 特征提取器的计算开销，分析语义计算成本、模型复杂度与信息传输效率之间的权衡。</li>
+                  <li>负责文献调研、仿真与评测流程搭建、实验设计、数据整理和结果分析，并完成英文论文撰写、图表制作与投稿。</li>
+                </ul>
+              </article>
+            </div>
+          </section>
+
+          <section id="projects" class="section">
+            <div class="section-kicker">Selected Work</div>
+            <h2>论文与计算机视觉项目</h2>
+            <div class="project-grid">
+              <article class="project"><h3>论文：面向语义通信中语义提取计算开销的量化与分析</h3><p>温泽煊等。已投稿 IEEE Wireless Communications Letters。</p></article>
+              <article class="project"><h3>基于 WSI 的乳腺癌病理图像分类</h3><p>完成全视野病理切片预处理、组织区域检测与 patch 切分，构建分类训练与验证流程；调整网络结构并分析误分类案例。</p></article>
+              <article class="project"><h3>面向视觉失真的鲁棒图像信息隐藏</h3><p>面向 JPEG 压缩、图像裁剪和高斯噪声等失真，在编解码式隐写网络中引入小波特征与联合噪声仿真，完成训练与鲁棒性对比。</p></article>
+            </div>
+          </section>
+
+          <section id="skills" class="section">
+            <div class="section-kicker">Capabilities</div>
+            <h2>技能与荣誉</h2>
+            <div class="project-grid">
+              <article class="project"><h3>编程与深度学习</h3><p>Python、PyTorch、C/C++、MATLAB；扩散模型、视频 VAE、多模态学习。</p></article>
+              <article class="project"><h3>三维与科研工具</h3><p>Blender、FreeCAD、CadQuery、Trimesh；Linux、Git、LaTeX、VS Code。</p></article>
+              <article class="project"><h3>工程与研究</h3><p>GPU/Ascend NPU 训练推理与调试；论文复现、消融实验、指标设计、英文写作。</p></article>
+              <article class="project"><h3>语言与荣誉</h3><p>CET-6 572，CET-4 569，可熟练阅读英文论文；连续两年校级优秀学生、校级奖学金、优秀班干部。</p></article>
+            </div>
+          </section>
+        </div>
+
+        <aside class="sidebar" aria-label="简历侧栏">
+          <div class="side-card">
+            <h3>联系我</h3>
+            <div class="contact-list">
+              <div class="contact-item"><span class="contact-label">Email</span><a href="mailto:wenzexuan@stu.scu.edu.cn">wenzexuan@stu.scu.edu.cn</a></div>
+              <div class="contact-item"><span class="contact-label">Phone</span><a href="tel:+8616663758978">+86 166 6375 8978</a></div>
+              <div class="contact-item"><span class="contact-label">WeChat</span><span id="wechat-id">wzx2561616320</span></div>
+            </div>
+            <button class="copy-button" type="button" onclick="copyWeChat()">复制微信号</button>
+          </div>
+          <div class="side-card">
+            <h3>教育背景</h3>
+            <p><strong>四川大学</strong><br />电子信息工程 · 工学学士<br />大二，预计 2028 年 6 月毕业</p>
+            <div class="education-stat"><strong>3.88 / 4.00</strong>GPA · 专业排名 6 / 150</div>
+          </div>
+          <div class="side-card">
+            <h3>研究关键词</h3>
+            <div class="tag-list">
+              <span class="tag">多模态生成</span><span class="tag">视频扩散</span><span class="tag">数字人</span><span class="tag">3D 几何</span><span class="tag">CAD</span><span class="tag">空间智能</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer><div class="shell footer-inner"><span>温泽煊 · 个人学术简历</span><span>最后更新：2026</span></div></footer>
+    <script>
+      function copyWeChat() {
+        const id = document.getElementById('wechat-id').textContent;
+        navigator.clipboard.writeText(id).then(() => {
+          const button = document.querySelector('.copy-button');
+          const original = button.textContent;
+          button.textContent = '已复制';
+          setTimeout(() => { button.textContent = original; }, 1600);
+        });
+      }
+    </script>
+  </body>
+</html>
+
