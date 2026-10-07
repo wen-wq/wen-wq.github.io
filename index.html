@@ -3,122 +3,247 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="温泽煊 - 四川大学电子信息工程本科生个人简历。" />
+    <meta name="description" content="温泽煊 - 四川大学电子信息工程本科生，关注多模态生成、视频扩散模型与三维几何。" />
     <meta name="theme-color" content="#ffffff" />
-    <title>温泽煊 | 个人简历</title>
+    <title>温泽煊 | 个人主页</title>
     <style>
-      :root { --text: #222; --muted: #606770; --blue: #1f4c7a; --line: #d9dde2; --page: #fff; }
+      :root {
+        --ink: #262a2e;
+        --muted: #626b74;
+        --blue: #1f5f9b;
+        --line: #e2e5e8;
+        --soft: #f7f8fa;
+      }
+
       * { box-sizing: border-box; }
-      body { margin: 0; color: var(--text); background: #f4f5f6; font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif; font-size: 15px; line-height: 1.68; }
-      a { color: #155b9d; }
-      .resume { max-width: 960px; margin: 32px auto; padding: 42px 52px 52px; background: var(--page); box-shadow: 0 1px 6px rgba(0, 0, 0, .10); }
-      header { display: flex; justify-content: space-between; gap: 28px; padding-bottom: 21px; border-bottom: 2px solid var(--blue); }
-      h1 { margin: 0; color: #152f4a; font-size: 32px; line-height: 1.2; font-weight: 700; }
-      .subtitle { margin: 7px 0 0; color: var(--muted); font-size: 16px; }
-      .contact { min-width: 255px; color: #40474e; font-size: 14px; line-height: 1.9; }
-      .contact div { overflow-wrap: anywhere; }
-      section { margin-top: 29px; }
-      h2 { margin: 0 0 16px; padding-bottom: 6px; border-bottom: 1px solid var(--line); color: var(--blue); font-size: 19px; font-weight: 700; }
-      h3 { margin: 0; color: #202830; font-size: 16px; line-height: 1.5; }
-      p { margin: 7px 0; }
-      ul { margin: 9px 0 0; padding-left: 21px; }
-      li + li { margin-top: 5px; }
-      .item { margin-top: 20px; }
-      .item:first-of-type { margin-top: 0; }
-      .item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
-      .item-meta { margin: 3px 0 0; color: var(--muted); }
-      .date { flex: none; color: #4d5963; font-size: 14px; white-space: nowrap; }
-      .summary { margin: 0; }
-      .skill-list { display: grid; grid-template-columns: 150px 1fr; gap: 10px 18px; margin: 0; }
-      .skill-list dt { color: #303a43; font-weight: 700; }
-      .skill-list dd { margin: 0; }
-      footer { margin-top: 36px; padding-top: 13px; border-top: 1px solid var(--line); color: #7b8288; font-size: 13px; text-align: center; }
-      @media (max-width: 680px) { body { background: #fff; } .resume { margin: 0; padding: 28px 22px 36px; box-shadow: none; } header, .item-head { display: block; } .contact { margin-top: 15px; } .date { display: block; margin-top: 3px; } .skill-list { grid-template-columns: 1fr; gap: 3px; } .skill-list dd { margin-bottom: 8px; } }
-      @media print { body { background: #fff; font-size: 12px; } .resume { max-width: none; margin: 0; padding: 0; box-shadow: none; } section { margin-top: 20px; } }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #fff;
+        font-family: Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      a { color: var(--blue); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      .topbar { border-bottom: 1px solid var(--line); background: #fff; }
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1100px;
+        min-height: 58px;
+        margin: 0 auto;
+        padding: 0 24px;
+        gap: 24px;
+      }
+      .site-name { color: #1f2933; font-size: 18px; font-weight: 700; letter-spacing: .02em; }
+      .nav { display: flex; gap: 20px; color: #4a5560; font-size: 14px; }
+      .nav a { color: inherit; }
+
+      .layout {
+        display: grid;
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 56px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 46px 24px 70px;
+      }
+      aside { color: var(--muted); }
+      .avatar {
+        display: grid;
+        width: 112px;
+        height: 112px;
+        place-items: center;
+        border-radius: 50%;
+        color: #fff;
+        background: #385b78;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 37px;
+        letter-spacing: .04em;
+      }
+      .profile-name { margin: 17px 0 2px; color: #212b35; font-family: Georgia, "Songti SC", serif; font-size: 25px; line-height: 1.2; }
+      .profile-role { margin: 0; font-size: 14px; }
+      .profile-school { margin: 8px 0 0; font-size: 14px; }
+      .profile-links { display: grid; gap: 7px; margin-top: 22px; font-size: 14px; }
+      .profile-links a, .profile-links span { overflow-wrap: anywhere; }
+      .profile-note { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.7; }
+
+      main { min-width: 0; }
+      section { scroll-margin-top: 70px; }
+      section + section { margin-top: 42px; }
+      h1 { margin: 0 0 13px; color: #222d38; font-family: Georgia, "Songti SC", serif; font-size: 33px; font-weight: 600; line-height: 1.25; }
+      h2 { margin: 0 0 16px; color: #26333e; font-family: Georgia, "Songti SC", serif; font-size: 23px; font-weight: 600; line-height: 1.25; }
+      p { margin: 0; }
+      p + p { margin-top: 10px; }
+      .lead { color: #48525c; font-size: 16px; }
+      .interests { margin-top: 15px; color: #303a43; }
+      .interests strong { color: #1f2933; }
+
+      .news { margin: 0; padding-left: 0; list-style: none; }
+      .news li { display: grid; grid-template-columns: 54px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid #edf0f2; }
+      .news li:last-child { border-bottom: 0; }
+      .news time { color: var(--muted); font-size: 13px; font-weight: 700; }
+
+      .experience { padding: 0 0 25px; border-bottom: 1px solid var(--line); }
+      .experience + .experience { padding-top: 25px; }
+      .experience:last-child { padding-bottom: 0; border-bottom: 0; }
+      .experience-head { display: flex; justify-content: space-between; gap: 20px; }
+      .experience h3 { margin: 0; color: #202a33; font-size: 16px; line-height: 1.5; }
+      .date { flex: none; color: var(--muted); font-size: 13px; white-space: nowrap; }
+      .institution { margin-top: 2px; color: var(--muted); font-size: 14px; }
+      ul { margin: 11px 0 0; padding-left: 20px; }
+      li + li { margin-top: 6px; }
+
+      .project { padding: 17px 0; border-bottom: 1px solid var(--line); }
+      .project:first-of-type { padding-top: 0; }
+      .project:last-child { padding-bottom: 0; border-bottom: 0; }
+      .project h3 { margin: 0 0 4px; color: #202a33; font-size: 16px; }
+      .project p { color: #4e5862; }
+
+      .facts { display: grid; grid-template-columns: 160px 1fr; gap: 9px 18px; margin: 0; }
+      .facts dt { color: #303940; font-weight: 700; }
+      .facts dd { margin: 0; color: #4d5760; }
+      footer { margin-top: 50px; color: #8b939b; font-size: 13px; }
+
+      @media (max-width: 760px) {
+        .topbar-inner { padding: 0 20px; }
+        .nav { display: none; }
+        .layout { display: block; padding: 34px 22px 52px; }
+        aside { display: grid; grid-template-columns: 112px 1fr; gap: 0 18px; align-items: center; }
+        .avatar { grid-row: span 3; }
+        .profile-name { margin: 0; }
+        .profile-links, .profile-note { grid-column: 1 / -1; }
+        .profile-note { margin-top: 18px; }
+        main { margin-top: 39px; }
+        .experience-head { display: block; }
+        .date { display: block; margin-top: 2px; }
+        .facts { grid-template-columns: 1fr; gap: 2px; }
+        .facts dd { margin-bottom: 9px; }
+      }
     </style>
   </head>
   <body>
-    <main class="resume">
-      <header>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="site-name">温泽煊</div>
+        <nav class="nav" aria-label="页面导航">
+          <a href="#about">主页</a>
+          <a href="#experience">经历</a>
+          <a href="#projects">项目</a>
+          <a href="#skills">技能</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside>
+        <div class="avatar" aria-label="温泽煊姓名缩写">WZ</div>
         <div>
-          <h1>温泽煊</h1>
-          <p class="subtitle">本科生 RA · 四川大学电子信息工程 · 成都</p>
+          <h2 class="profile-name">温泽煊</h2>
+          <p class="profile-role">Undergraduate Researcher</p>
+          <p class="profile-school">四川大学 · 电子信息工程</p>
         </div>
-        <div class="contact" aria-label="联系方式">
-          <div>邮箱：<a href="mailto:wenzexuan@stu.scu.edu.cn">wenzexuan@stu.scu.edu.cn</a></div>
-          <div>电话：<a href="tel:+8616663758978">+86 166 6375 8978</a></div>
-          <div>微信：wzx2561616320</div>
+        <div class="profile-links">
+          <a href="mailto:wenzexuan@stu.scu.edu.cn">wenzexuan@stu.scu.edu.cn</a>
+          <a href="tel:+8616663758978">+86 166 6375 8978</a>
+          <span>WeChat: wzx2561616320</span>
         </div>
-      </header>
+        <p class="profile-note">本科二年级，预计于 2028 年 6 月获得工学学士学位。欢迎通过邮件联系交流研究或实习机会。</p>
+      </aside>
 
-      <section>
-        <h2>个人简介</h2>
-        <p class="summary">关注多模态生成、视频扩散模型、身份保持数字人、三维几何与 CAD，以及空间智能。具备视频扩散和多模态三维生成方向的研究及工程经验，熟悉模型复现、实验设计、评测与论文写作。</p>
-      </section>
+      <main>
+        <section id="about">
+          <h1>About Me</h1>
+          <p class="lead">我是四川大学电子信息工程专业本科生，目前关注生成式 AI 在视频、数字人和三维几何中的应用。我的工作主要围绕可控视频生成、多模态 CAD 生成，以及由实验驱动的生成模型评测展开。</p>
+          <p class="interests"><strong>Research interests:</strong> Multimodal Generation, Video Diffusion, Digital Humans, 3D Geometry, CAD Generation, Spatial Intelligence.</p>
+        </section>
 
-      <section>
-        <h2>教育背景</h2>
-        <article class="item">
-          <div class="item-head"><h3>四川大学 · 电子信息工程 · 工学学士</h3><span class="date">预计 2028 年 6 月毕业</span></div>
-          <p class="item-meta">本科二年级 · GPA 3.88 / 4.00 · 均分 90.85 / 100 · 专业排名 6 / 150</p>
-          <p>核心课程：微机原理（97）、人工智能基础（95）、数字信号处理（94）、C 语言程序设计（94）、微积分（93）、大学物理（93）、模拟电子技术（93）、数字电子技术（91）、概率统计（90）。</p>
-        </article>
-      </section>
-
-      <section>
-        <h2>科研与实习经历</h2>
-        <article class="item">
-          <div class="item-head"><h3>多模态 CAD 生成与三维几何重建 · 访问科研实习生</h3><span class="date">2026</span></div>
-          <p class="item-meta">香港大学</p>
-          <ul>
-            <li>面向文本、渲染图像与点云到参数化 CAD 程序的统一生成开展研究，关注多模态几何对齐、拓扑/建模序列表达，以及生成结果的可编辑性与可执行性。</li>
-            <li>搭建 STEP 到多模态训练样本的自动化数据管线，完成模型读取、网格转换、尺度归一化、点云采样和多视角渲染，并维护样本清单与数据对应关系。</li>
-            <li>使用 Blender、FreeCAD、CadQuery、Trimesh 生成 RGB、深度、法线、掩码、相机位姿及遮挡资产，处理 STEP 加载失败、插件依赖和批量遍历等工程问题。</li>
-            <li>调研并复现多模态 CAD 生成方法，探索以 JSON/command sequence 为中间表示的建模方案；搭建 STEP 预测评测流程，从文件有效性、几何误差与结构一致性等维度分析结果。</li>
+        <section id="news">
+          <h2>News</h2>
+          <ul class="news">
+            <li><time>2026</time><span>在香港大学开展多模态 CAD 生成与三维几何重建方向的访问科研实习。</span></li>
+            <li><time>2026</time><span>在北京大学参与身份保持的多模态数字人视频生成研究。</span></li>
+            <li><time>2026</time><span>以第一作者完成语义通信中语义提取计算开销量化分析论文，并投稿 IEEE Wireless Communications Letters。</span></li>
           </ul>
-        </article>
+        </section>
 
-        <article class="item">
-          <div class="item-head"><h3>身份保持的多模态数字人视频生成 · 访问学生</h3><span class="date">2026</span></div>
-          <p class="item-meta">北京大学</p>
-          <ul>
-            <li>围绕参考图像、音频、文本与动作信号联合驱动的数字人视频生成开展研究，聚焦面部/身体身份一致性、时序稳定性、动作可控性与视觉质量。</li>
-            <li>基于 Wan、InterActHuman 等视频扩散框架完成环境部署、代码改造与对比实验，探索参考特征注入、首尾帧约束、关键帧邻域控制和潜空间引导。</li>
-            <li>针对长序列生成中的 VAE 解码发灰/模糊、分块边界、颜色漂移、尾帧跳变及局部帧污染设计消融实验，并以尾帧误差、色差、闪烁和平滑度进行评测。</li>
-            <li>完成两项 training-free 方案验证：以尾窗与潜空间引导增强生成视频和输入首尾帧的一致性；构建 IC-Light、前景掩码与时序融合结合的数字人视频重光照流程。</li>
-          </ul>
-        </article>
+        <section id="experience">
+          <h2>Research Experience</h2>
+          <article class="experience">
+            <div class="experience-head">
+              <h3>多模态 CAD 生成与三维几何重建 · 访问科研实习生</h3>
+              <span class="date">2026</span>
+            </div>
+            <p class="institution">香港大学</p>
+            <ul>
+              <li>研究从文本、渲染图像和点云到参数化 CAD 程序的统一生成，重点关注多模态几何对齐、拓扑/建模序列表达，以及结果的可编辑性与可执行性。</li>
+              <li>搭建 STEP 到多模态训练样本的自动化数据管线，覆盖模型读取、网格转换、尺度归一化、点云采样、多视角渲染及样本清单维护。</li>
+              <li>使用 Blender、FreeCAD、CadQuery 和 Trimesh 生成 RGB、深度、法线、掩码、相机位姿和遮挡资产，并解决 STEP 加载、插件依赖和批处理问题。</li>
+              <li>调研并复现多模态 CAD 生成方法，探索 JSON / command sequence 中间表示；搭建 STEP 预测评测流程，从文件有效性、几何误差和结构一致性分析结果。</li>
+            </ul>
+          </article>
 
-        <article class="item">
-          <div class="item-head"><h3>语义通信中语义提取计算开销的量化与分析 · 第一作者</h3><span class="date">投稿中</span></div>
-          <p class="item-meta">四川大学校级创新创业项目</p>
-          <ul>
-            <li>从参数量、FLOPs、能耗与时延等维度量化 CNN、Transformer 特征提取器的计算开销，分析语义计算成本、模型复杂度与信息传输效率之间的权衡。</li>
-            <li>负责文献调研、仿真与评测流程搭建、实验设计、数据整理和结果分析，并完成英文论文撰写、图表制作与投稿。</li>
-          </ul>
-        </article>
-      </section>
+          <article class="experience">
+            <div class="experience-head">
+              <h3>身份保持的多模态数字人视频生成 · 访问学生</h3>
+              <span class="date">2026</span>
+            </div>
+            <p class="institution">北京大学</p>
+            <ul>
+              <li>围绕参考图像、音频、文本和动作信号联合驱动的数字人视频生成开展研究，聚焦面部与身体身份一致性、时序稳定性、动作可控性和视觉质量。</li>
+              <li>基于 Wan、InterActHuman 等视频扩散框架完成环境部署、代码改造与对比实验，探索参考特征注入、首尾帧约束、关键帧邻域控制和潜空间引导。</li>
+              <li>针对长序列生成中的 VAE 解码发灰/模糊、分块边界、颜色漂移、尾帧跳变和局部帧污染设计消融实验，并以尾帧误差、色差、闪烁和平滑度评测。</li>
+              <li>验证两项 training-free 方案：以尾窗和潜空间引导增强生成视频与输入首尾帧的一致性；构建 IC-Light、前景掩码和时序融合结合的数字人视频重光照流程。</li>
+            </ul>
+          </article>
 
-      <section>
-        <h2>论文与项目</h2>
-        <article class="item"><h3>论文：面向语义通信中语义提取计算开销的量化与分析</h3><p>温泽煊等。已投稿 IEEE Wireless Communications Letters。</p></article>
-        <article class="item"><h3>基于 WSI 的乳腺癌病理图像分类</h3><p>完成全视野病理切片预处理、组织区域检测与 patch 切分，构建分类训练与验证流程；针对高密度纹理、类别差异与复杂样本调整网络结构并分析误分类案例。</p></article>
-        <article class="item"><h3>面向视觉失真的鲁棒图像信息隐藏</h3><p>面向 JPEG 压缩、图像裁剪和高斯噪声等失真，在编解码式隐写网络中引入小波特征与联合噪声仿真，完成训练、鲁棒性对比和结果分析。</p></article>
-      </section>
+          <article class="experience">
+            <div class="experience-head">
+              <h3>语义通信中语义提取计算开销的量化与分析 · 第一作者</h3>
+              <span class="date">2026</span>
+            </div>
+            <p class="institution">四川大学校级创新创业项目</p>
+            <ul>
+              <li>从参数量、FLOPs、能耗和时延等维度量化 CNN、Transformer 特征提取器的计算开销，分析语义计算成本、模型复杂度和信息传输效率之间的权衡。</li>
+              <li>负责文献调研、仿真与评测流程搭建、实验设计、数据整理、结果分析及英文论文撰写；相关工作已投稿 IEEE Wireless Communications Letters。</li>
+            </ul>
+          </article>
+        </section>
 
-      <section>
-        <h2>技能与荣誉</h2>
-        <dl class="skill-list">
-          <dt>编程与深度学习</dt><dd>Python、PyTorch、C/C++、MATLAB；扩散模型、视频 VAE、多模态学习。</dd>
-          <dt>三维与科研工具</dt><dd>Blender、FreeCAD、CadQuery、Trimesh；Linux、Git、LaTeX、VS Code。</dd>
-          <dt>工程与研究</dt><dd>GPU / Ascend NPU 训练推理与调试；论文复现、消融实验、指标设计、英文写作。</dd>
-          <dt>英语能力</dt><dd>CET-6 572，CET-4 569，可熟练阅读英文论文。</dd>
-          <dt>奖项与学生工作</dt><dd>连续两年校级优秀学生、校级奖学金、优秀班干部；班长、学院学生会干事。</dd>
-        </dl>
-      </section>
+        <section id="projects">
+          <h2>Selected Projects</h2>
+          <article class="project">
+            <h3>基于 WSI 的乳腺癌病理图像分类</h3>
+            <p>完成全视野病理切片预处理、组织区域检测与 patch 切分，构建分类训练与验证流程；针对高密度纹理、类别差异和复杂样本调整网络结构并分析误分类案例。</p>
+          </article>
+          <article class="project">
+            <h3>面向视觉失真的鲁棒图像信息隐藏</h3>
+            <p>面向 JPEG 压缩、图像裁剪和高斯噪声等失真，在编解码式隐写网络中引入小波特征与联合噪声仿真，完成训练、鲁棒性对比和结果分析。</p>
+          </article>
+        </section>
 
-      <footer>温泽煊 · 个人学术简历</footer>
-    </main>
+        <section id="skills">
+          <h2>Skills &amp; Honors</h2>
+          <dl class="facts">
+            <dt>Programming &amp; ML</dt>
+            <dd>Python, PyTorch, C/C++, MATLAB; diffusion models, video VAE, multimodal learning.</dd>
+            <dt>3D &amp; Tools</dt>
+            <dd>Blender, FreeCAD, CadQuery, Trimesh; Linux, Git, LaTeX, VS Code.</dd>
+            <dt>Research Practice</dt>
+            <dd>GPU / Ascend NPU training and inference; paper reproduction, ablation studies, metric design and academic writing.</dd>
+            <dt>English</dt>
+            <dd>CET-6 572, CET-4 569; proficient in reading English research papers.</dd>
+            <dt>Honors</dt>
+            <dd>连续两年校级优秀学生、校级奖学金、优秀班干部；曾任班长、学院学生会干事。</dd>
+          </dl>
+        </section>
+
+        <footer>© 2026 Zexuan Wen · Last updated 2026</footer>
+      </main>
+    </div>
   </body>
 </html>
 
